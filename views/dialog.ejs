@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>XYZ Bank Consent page</title>
+  </head>
+  <body>
+    <p>Hi please select account to provide consent</p>
+    <p></p>
+   
+
+    <form action="/api/oauth2/authorize" method="post">
+	  <select name="Account" id="Acc" onChange="delivery()">
+		<option value="Acc1">Savings Account- 012357</option>
+		<option value="Acc2">Current Account - 03525</option>
+		<option value="Acc3">Super Saver- 01223</option>		
+	  </select>
+	
+      <input name="transaction_id" type="hidden" value="<%= transactionID %>">
+	  <input name="AccountNumber" type="hidden" id="Account" >
+      <div>
+      <input type="submit" value="Allow" id="allow">
+      <input type="submit" value="Deny" name="cancel" id="deny">
+      </div>
+    </form>
+<script>
+
+function delivery() {
+  document.getElementById('Account').value=document.getElementById("Acc").value ; 
+  console.log( document.getElementById("Acc").value);
+}
+</script>
+  </body>
+</html>
